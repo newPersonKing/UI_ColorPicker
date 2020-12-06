@@ -1,0 +1,24 @@
+buildscript {
+    apply from: './dependencies.gradle'
+
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$versions.gradleBuildTool"
+        classpath "com.diffplug.spotless:spotless-plugin-gradle:$versions.spotlessGradle"
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$versions.bintrayPlugin"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

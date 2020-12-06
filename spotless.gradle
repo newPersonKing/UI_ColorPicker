@@ -1,0 +1,11 @@
+apply plugin: "com.diffplug.spotless"
+spotless {
+  java {
+    target "**/*.java"
+    licenseHeaderFile '../spotless.license.java'
+    trimTrailingWhitespace()
+    removeUnusedImports()
+    googleJavaFormat()
+    endWithNewline()
+  }
+}

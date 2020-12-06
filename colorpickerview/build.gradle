@@ -1,0 +1,25 @@
+apply plugin: 'com.android.library'
+apply from: '../dependencies.gradle'
+apply from: '../publish.gradle'
+
+android {
+  compileSdkVersion versions.compileSdk
+  defaultConfig {
+    minSdkVersion versions.minSdk
+    targetSdkVersion versions.compileSdk
+    versionCode versions.versionCode
+    versionName versions.versionName
+  }
+  buildFeatures {
+    buildConfig false
+    viewBinding true
+  }
+}
+
+dependencies {
+  implementation "androidx.appcompat:appcompat:$versions.androidxAppcompat"
+}
+
+tasks.withType(Javadoc).all { enabled = false }
+
+apply from: '../spotless.gradle'
